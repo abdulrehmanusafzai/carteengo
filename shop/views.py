@@ -14,6 +14,7 @@ def index(request):
         n = len(prod)
         nSlides = n//4 + ceil((n/4) - (n//4))
         allProds.append([prod, range(1, nSlides), nSlides])
+        print(allProds)
     params = {"allProds": allProds}
     return render(request, 'shop/index.html', params)
 
@@ -100,3 +101,6 @@ def checkout(request):
         id = order.order_id
         return render(request, 'shop/checkout.html', {"thank": thank, "id": id})
     return render(request, 'shop/checkout.html')
+
+def noendpoint(request):
+    return HttpResponse("No product is available to buy. This is a demo website.")
