@@ -13,8 +13,10 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 from pathlib import Path
 import os
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 
 # Quick-start development settings - unsuitable for production
@@ -26,7 +28,7 @@ SECRET_KEY = 'django-insecure-2i8+uf5)t1z%^&q16ba%bnal@7$&$w=u7m)%imbp8qsj6xh7sq
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['cartingo.onrender.com', 'carteengo.com', 'www.carteengo.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
