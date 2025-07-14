@@ -28,8 +28,7 @@ SECRET_KEY = 'django-insecure-2i8+uf5)t1z%^&q16ba%bnal@7$&$w=u7m)%imbp8qsj6xh7sq
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['cartingo.onrender.com', 'carteengo.com', 'www.carteengo.com', 'localhost', '127.0.0.1']
-
+ALLOWED_HOSTS = ['carteengo.onrender.com', 'carteengo.com', 'www.carteengo.com', 'localhost', '127.0.0.1']
 
 # Application definition
 
