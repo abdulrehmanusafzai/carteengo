@@ -1,0 +1,16 @@
+{% extends 'blog/basic.html' %}
+
+{% block body %}
+<div class="container">
+  <article class="blog-post">
+    <h2 class="display-5 link-body-emphasis mb-1">{{post.title}}</h2>
+    <p class="blog-post-meta">{{post.pub_date}} by <a href="#">Mark</a></p>
+    <h3>{{post.head1}}</h3>
+    <p>{{post.chead1}}</p>
+    <h2>{{post.head2}}</h2>
+    <p>{{post.chead2}}</p>
+    <h2>{{post.head0}}</h2>
+    <p>{{post.cheah0}}</p>
+  </article>
+</div>
+{% endblock %}

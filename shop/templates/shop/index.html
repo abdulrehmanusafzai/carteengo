@@ -1,0 +1,94 @@
+{% extends 'shop/basic.html'%}
+
+{% block css %}
+<style>
+  .carousel-item .card {
+    margin: 10px;
+  }
+
+  .col-md-3 img{
+    width: 227px;
+    height: 242px;
+  }
+
+  .carousel-indicators [data-bs-target] {
+    background-color: blue;
+    bottom: -40;
+  }
+
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    background-color: blue;
+  }
+  .carousel-control-prev,
+  .carousel-control-next {
+    top: auto;
+    bottom: auto;
+  }
+
+  .no-padding {
+    padding-left: 0;
+    padding-right: 0;
+  }
+</style>
+{% endblock %}
+{% block title %} Shop {% endblock %}
+{% block body %}
+<div class="container">
+  <!-- Slide show starts here -->
+  {% for product, range, nSlides in allProds %}
+  <h1 class="my-4">{{product.0.category}}</h1>
+  <div id="demo{{forloop.counter}}" class="carousel slide my-3" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#demo{{forloop.counter}}" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      {% for i in range %}
+      <button type="button" data-bs-target="#demo{{forloop.parentloop.counter}}" data-bs-slide-to="{{i}}" aria-label="Slide 2"></button>
+        {% endfor %}
+    </div>
+
+    <div class="carousel-inner container no-padding">
+      <!-- Slide 1 -->
+      <div class="carousel-item active">
+        {% for i in product %}
+        <div class="row">
+          <div class="col-md-4">
+            <div class="card align-item-center">
+              <img src="/media/{{i.image}}" class="card-img-top" alt="">
+              <div class="card-body">
+                <h5 class="card-title" id="namepr{{i.id}}">{{i.product_name}}</h5>
+                <h6 class="card-title" id="pricepr{{i.id}}">{{i.price}}</h6>
+                <p class="card-text">{{i.desc}}</p>
+                <span id="divpr{{i.id}}" class="divpr">
+                  <button id="pr{{i.id}}" class="btn btn-primary cart">Add to Cart</button>
+                </span>
+                <a href="/shop/products/{{i.id}}"><button id="qv{{i.id}}" class="btn btn-secondary">Quick view</button></a>
+              </div>
+            </div>
+          </div>
+          {% if forloop.counter|divisibleby:2 and not forloop.last %}
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="row">
+          {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <!-- Controls -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#demo{{forloop.counter}}" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#demo{{forloop.counter}}" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+    {% endfor %}
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </div>
+  {% endblock %}
