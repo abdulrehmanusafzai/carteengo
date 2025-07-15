@@ -16,7 +16,7 @@ def index(request):
         allProds.append([prod, range(1, nSlides), nSlides])
         print(allProds)
     params = {"allProds": allProds}
-    return render(request, 'shop/index.html', params)
+    return render(request, 'shop/index2.html', params)
 
 def searchMatch(query, item):
     if query in item.desc.lower() or query in item.product_name.lower() or query in item.category.lower():
