@@ -1,11 +1,11 @@
 {% extends 'shop/basic.html' %}
 
-{% block title %} Track yout Order - My Awesome Cart {% endblock %}
+{% block title %} Track yout Order | carteengo.com {% endblock %}
 
 {% block body %}
 <div class="container">
   <div class="col my-4">
-    <h2>My Awesome Cart Express Tracker - Enter the Order Id to trace your Order</h2>
+    <h2>Tracker - Enter the Order Id to trace your Order</h2>
     <form action="#" method="post" class="row g-3" id="trackerForm">{% csrf_token %}
       <div class="col-md-6">
         <label for="orderId" class="form-label">Order Id</label>

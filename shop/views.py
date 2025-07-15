@@ -14,9 +14,8 @@ def index(request):
         n = len(prod)
         nSlides = n//4 + ceil((n/4) - (n//4))
         allProds.append([prod, range(1, nSlides), nSlides])
-        print(allProds)
     params = {"allProds": allProds}
-    return render(request, 'shop/index2.html', params)
+    return render(request, 'shop/index.html', params)
 
 def searchMatch(query, item):
     if query in item.desc.lower() or query in item.product_name.lower() or query in item.category.lower():
@@ -63,8 +62,7 @@ def tracker(request):
         try:
             order = Orders.objects.filter(order_id = orderId, email = email)
             if len(order) > 0:
-                update = OrderUpdate.objects.filter(order_id = orderId)
-                print(update)
+                update = OrderUpdate.objects.filter(order_id = orderId)    
                 updates = []
                 for item in update:
                     updates.append({"text": item.update_desc, "time": item.timestamp})

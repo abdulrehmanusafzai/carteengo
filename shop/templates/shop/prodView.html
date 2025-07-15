@@ -1,6 +1,6 @@
 {% extends 'shop/basic.html' %}
 
-{% block title %} {{product.product_name}} - MAC {% endblock %}
+{% block title %} {{product.product_name}} {% endblock %}
 
 {% block body %} 
   <div class="container my-4">
@@ -9,10 +9,10 @@
         <div class="row">
           <img src="/media/{{product.image}}" alt="" width="200px" height="300px">
         </div>
-        <span id="divpr1" class="divpr">
-          <button id="pr1" class="btn btn-primary cart">Add to Cart</button>
+        <span id="divpr{{product.id}}" class="divpr">
+          <button id="pr{{product.id}}" class="btn btn-primary cart my-2">Add to Cart</button>
         </span>
-        <a href='/shop/noendpoint'><button class="btn btn-primary">Buy Now</button></a>
+        <a href='/shop/noendpoint'><button class="btn btn-primary my-2">Buy Now</button></a>
       </div>
       <div class="col-md-8">
         <h5 id="namepr{{product.id}}">{{product.product_name}}</h5>

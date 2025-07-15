@@ -1,11 +1,11 @@
 {% extends 'shop/basic.html' %}
 
-{% block title %} Checkout - My Awesome Cart {% endblock %}
+{% block title %} Checkout | carteengo.com {% endblock %}
 
 {% block body %}
 <div class="container">
   <div class="col my-4">
-    <h2>Step 1 - My Awesome Cart Express Checkout - Review your items</h2>
+    <h2>Step 1 - Checkout - Review your items</h2>
     <div class="my-4">
       <ul class="list-group" id="items">
       </ul>
@@ -97,7 +97,7 @@
   })
   $("#itemsJson").val(JSON.stringify(cart));
   {% if thank %}
-  alert("Thanks for shopping from MAC. Your order id is {{id}}")
+  alert("Thanks for shopping from carteengo.com. Your order id is {{id}}")
   localStorage.clear();
   document.location = '/shop';
   {% endif %}
